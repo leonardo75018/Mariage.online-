@@ -1,0 +1,130 @@
+
+
+#page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: chocolate;
+}
+
+
+
+#login-container{
+width: 960px;
+height: 658px;
+display: flex;
+
+.acroche{
+    margin-bottom: 4rem;
+    h2{
+        font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+    }
+}
+
+
+
+.form-container{
+width: 960px;
+height: auto;
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background: #FFFFFF;
+
+  
+input{
+    border: 2px solid black;
+  
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 24px;
+    transition: 0.25s;
+    width: 75%;
+
+}
+
+input:focus {
+    width: 80%;
+    border-color:  #5352ed;
+}
+
+  
+input{
+        box-shadow: 0 4px 4px rgba(0, 0, 0, .5);
+        outline: none;   
+}
+
+.form-submit{
+    border: 0;
+    background: #5352ed;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3742fa;
+    padding: 1rem 6rem;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.form-submit:hover {
+    cursor: pointer;
+    background: none;
+}
+
+.error{
+    color: red;
+}
+
+
+
+
+ }
+
+
+
+.photo-container{
+background: url("../images/login-photo.jpg") center ;
+background-repeat: no-repeat;
+background-size: cover;
+width: 960px;
+height: auto;
+            
+}
+        
+    
+}
+
+@media all and (max-width: 760px){
+
+    #login-container{
+        width: 100%;
+        height: 100%;
+        .photo-container{
+            display: none;
+        }
+           
+       
+    .form-container{
+        width: 100%;
+        background: url("../images/login-photo.jpg") no-repeat center;
+        background-size: cover;
+        background-position-x: 40%;
+    }
+     
+
+  
+     
+    }
+
+
+}
