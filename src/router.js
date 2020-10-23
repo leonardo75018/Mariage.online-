@@ -21,9 +21,13 @@ import DeleClient from "./pages/admin/clients/deleteClient"
 import DelePhoto from "./pages/admin/clients/deletePhoto"
 
 
+//Routes for client 
+import PhotoHome from "./components/client/PhotoHome"
+
+
 
 //Routes for Client
-import Home from "./pages/client/panel/index"
+import Home from "./pages/client/HomeClient"
 
 import {
     BrowserRouter as Router,
@@ -32,6 +36,7 @@ import {
     Link,
     NavLink
 } from "react-router-dom";
+import HomeClient from "./pages/client/HomeClient";
 
 
 const Routes = (props) => {
@@ -55,6 +60,12 @@ const Routes = (props) => {
                     <Router exact path="/deleteClient"> <DeleClient />  </Router>
                     <Router exact path="/deletePhoto">  <DelePhoto />      </Router>
                     <Router exact path="/compteAdmin">  <CompteAdmin />      </Router>
+
+
+                    <Route exact path="/homeClient"> <HomeClient />  </Route>
+
+
+
 
 
                     //Clients

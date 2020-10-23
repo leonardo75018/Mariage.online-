@@ -1,0 +1,201 @@
+
+
+
+//page home 
+
+.home-space{
+    width: 100%;
+    height: 20vh;
+    color: black;
+    display:flex ;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  
+    h1{
+       
+    }
+
+    /* Style buttons */
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+
+
+
+}
+
+
+//NavBar
+.nav-bar{
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    color: white;
+    display: flex;
+    // position: fixed;
+    z-index: 1;
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    
+
+
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover; 
+      }
+  
+ 
+
+    .nav-icon{
+        cursor: pointer;
+        padding: 0 5px;
+        display: none;
+
+    }
+
+    .nav-logo{
+        width: 10%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+       margin-left: 3rem;
+    }
+
+
+    .nav-space{
+        
+        flex: 0.9;
+    }
+    
+    
+    .nav-items {
+        // width: 100%;
+        height: 100%;
+        padding-top: 20px;
+        margin-right: 3rem;
+        display: flex;
+        align-items: center;
+       
+       
+        ul{
+        display: flex;
+        list-style: none;
+
+        li{
+            padding: 0 30px ;
+        }
+
+        li:hover{
+            cursor: pointer;
+            color: yellow;
+        }
+
+        }
+          
+    }
+
+
+   
+    
+}
+
+//SideNavBar
+
+.side-nav-bar{
+    width: 200px;
+    height: 100%;
+    color: white;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    background-color: black;
+
+    ul{
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+
+        li{
+            margin-bottom: 20px;
+           
+        }
+
+
+        li:hover{
+           cursor: pointer;
+           color: yellow;
+        }
+
+    }
+
+    .client-profile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .client-option{
+            padding-top: 30px;
+        }
+    
+
+    }
+    .photo-container{
+        width:120px ;
+        height: 120px;
+
+
+
+
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+    
+
+    }
+
+
+    
+
+
+}
+
+.side-nav-bar.open{
+    transform: translateX(0);
+}
+
+
+@media all and (max-width: 760px){
+
+    .nav-bar{
+        .nav-items{display: none}
+
+        .nav-icon{ display: block;}
+        .nav-logo{ display: none;}
+
+    }
+  
+
+}

@@ -6,6 +6,7 @@ import api from "../service/api"
 
 const InfoPhofile = () => {
     const { id } = useParams();
+    console.log(id)
 
 
     const [infos, SetInfos] = useState([])
