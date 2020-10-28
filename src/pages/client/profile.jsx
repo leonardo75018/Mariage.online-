@@ -1,9 +1,19 @@
 import React from "react"
+import Nav from "../../components/client/Nav"
+import ClientProfile from "../../components/client/ClienProfile"
+import { useState } from "react";
+import api from "../../service/api"
 
 const Profile = () => {
+
+
     return (
         <div>
-            <h1>je suis </h1>
+            <Nav />
+            <ClientProfile />
+
+
+
         </div>
     );
 }

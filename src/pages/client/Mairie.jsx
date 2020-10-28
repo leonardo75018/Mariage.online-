@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import PhotoHome from "../../components/client/Photos"
-import Modal from "../../components/client/Modal"
+import React from 'react'
+import { useEffect, useState } from 'react'
 import Nav from "../../components/client/Nav"
+import MairiePhotos from "../../components/client/MairieModal"
+import api from "../../service/api"
 import SideNavBar from "../../components/client/SidNavBar"
 import AffterNav from "../../components/client/affterNav"
-import api from "../../service/api"
-import "../../style/nav-bar.scss"
 
+const Mairie = () => {
 
+    const [cerimonyPhotos, SetprepaPhotos] = useState([])
 
-
-
-
-
-const HomeClient = () => {
-
-
-    const [photos, SetPhotos] = useState([])
-
-
-    const TakePhoto = async () => {
+    const TakeCerimonyPhotos = async () => {
         try {
             const response = await api.get(`/application/profileClient/${31}`);
 
@@ -28,7 +19,7 @@ const HomeClient = () => {
             })
 
 
-            SetPhotos(array)
+            SetprepaPhotos(array)
 
         } catch (error) {
             return console.log(error)
@@ -37,13 +28,13 @@ const HomeClient = () => {
     }
 
 
-
-
     useEffect(() => {
-        TakePhoto()
+
+        return TakeCerimonyPhotos()
 
     }, [])
 
+    //Photo cliquer 
     const [selectImg, SetselectImg] = useState(null)
 
 
@@ -59,6 +50,8 @@ const HomeClient = () => {
 
 
 
+
+
     return (
         <div>
             <Nav Open={hadleOpen} close={hadleClose} />
@@ -71,19 +64,10 @@ const HomeClient = () => {
                 </div>) : null}
 
 
-            <PhotoHome photos={photos} SetselectImg={SetselectImg} close={hadleClose} />
-
-            { selectImg && <Modal selectImg={selectImg} SetselectImg={SetselectImg} />}
-
-
-
-
-
+            <MairiePhotos cerimonyPhotos={cerimonyPhotos} SetselectImg={SetselectImg} close={hadleClose} />
 
         </div>
     )
 }
 
-
-
-export default HomeClient;
+export default Mairie; 

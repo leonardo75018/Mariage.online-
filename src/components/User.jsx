@@ -5,6 +5,7 @@ const User = () => {
 
 
     console.log(useParams());
+
     const { id } = useParams()
     console.log(id)
 

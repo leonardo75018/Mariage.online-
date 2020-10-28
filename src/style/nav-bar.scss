@@ -6,25 +6,36 @@
 .home-space{
     width: 100%;
     height: 20vh;
+    margin-top: 36px;
     color: black;
     display:flex ;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+   
   
     h1{
        
     }
 
     /* Style buttons */
-.btn {
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    cursor: pointer;
-    font-size: 20px;
-  }
+
+    .download-container{
+    padding-right: 30px;
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 20px;
+       
+       
+        }
+        
+    }
+
+
+
   
 
 
@@ -41,6 +52,7 @@
     color: white;
     display: flex;
     // position: fixed;
+    top: 0;
     z-index: 1;
     background-color: black;
     font-family: 'Roboto', sans-serif;
@@ -190,6 +202,7 @@
 @media all and (max-width: 760px){
 
     .nav-bar{
+     
         .nav-items{display: none}
 
         .nav-icon{ display: block;}

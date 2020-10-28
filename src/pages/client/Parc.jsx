@@ -1,34 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import PhotoHome from "../../components/client/Photos"
-import Modal from "../../components/client/Modal"
+import React from 'react'
 import Nav from "../../components/client/Nav"
+import { useEffect, useState } from 'react'
+import ParcPhotos from "../../components/client/ParcPhotos"
+import ParcModal from "../../components/client/ParcModal"
 import SideNavBar from "../../components/client/SidNavBar"
 import AffterNav from "../../components/client/affterNav"
+
+
 import api from "../../service/api"
-import "../../style/nav-bar.scss"
 
+const Parc = () => {
 
+    const [parcPhotos, SetparcPhotos] = useState([])
 
-
-
-
-
-const HomeClient = () => {
-
-
-    const [photos, SetPhotos] = useState([])
-
-
-    const TakePhoto = async () => {
+    const TakeParcPhotos = async () => {
         try {
             const response = await api.get(`/application/profileClient/${31}`);
 
             const array = response.data.filter((elem) => {
-                return elem.moment === "cerimonie"
+                return elem.moment === "parc"
             })
 
 
-            SetPhotos(array)
+            SetparcPhotos(array)
 
         } catch (error) {
             return console.log(error)
@@ -37,15 +31,14 @@ const HomeClient = () => {
     }
 
 
-
-
     useEffect(() => {
-        TakePhoto()
+
+        return TakeParcPhotos()
 
     }, [])
 
+    //Photo cliquer 
     const [selectImg, SetselectImg] = useState(null)
-
 
     const [sideOpen, SideClose] = useState(false)
 
@@ -56,6 +49,9 @@ const HomeClient = () => {
     const hadleClose = () => {
         SideClose(false)
     }
+
+
+
 
 
 
@@ -70,20 +66,13 @@ const HomeClient = () => {
 
                 </div>) : null}
 
+            <ParcPhotos parcPhotos={parcPhotos} SetselectImg={SetselectImg} close={hadleClose} />
 
-            <PhotoHome photos={photos} SetselectImg={SetselectImg} close={hadleClose} />
-
-            { selectImg && <Modal selectImg={selectImg} SetselectImg={SetselectImg} />}
-
-
-
-
+            {selectImg && <ParcModal selectImg={selectImg} SetselectImg={SetselectImg} />}
 
 
         </div>
     )
 }
 
-
-
-export default HomeClient;
+export default Parc; 

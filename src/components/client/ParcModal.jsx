@@ -3,7 +3,7 @@ import "../../style/HomeClient.scss"
 
 
 const Modal = ({ selectImg, SetselectImg }) => {
-    console.log(selectImg)
+
 
     const handleClick = (e) => {
         if (e.target.classList.contains("backdrop"))

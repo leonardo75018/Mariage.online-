@@ -1,34 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import PhotoHome from "../../components/client/Photos"
-import Modal from "../../components/client/Modal"
+import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 import Nav from "../../components/client/Nav"
+import SideNav from "../../components/client/SidNavBar"
+import PrepaPhotos from "../../components/client/PrepaPhotos"
+import PrepaModal from "../../components/client/PrepaModal"
+import api from "../../service/api"
 import SideNavBar from "../../components/client/SidNavBar"
 import AffterNav from "../../components/client/affterNav"
-import api from "../../service/api"
-import "../../style/nav-bar.scss"
 
 
+const Preparation = () => {
 
+    const [prepaPhotos, SetprepaPhotos] = useState([])
 
-
-
-
-const HomeClient = () => {
-
-
-    const [photos, SetPhotos] = useState([])
-
-
-    const TakePhoto = async () => {
+    const TakePrepaPhotos = async () => {
         try {
             const response = await api.get(`/application/profileClient/${31}`);
 
             const array = response.data.filter((elem) => {
-                return elem.moment === "cerimonie"
+                return elem.moment === "prepa"
             })
 
 
-            SetPhotos(array)
+            SetprepaPhotos(array)
 
         } catch (error) {
             return console.log(error)
@@ -37,15 +32,15 @@ const HomeClient = () => {
     }
 
 
-
-
     useEffect(() => {
-        TakePhoto()
+
+        return TakePrepaPhotos()
 
     }, [])
 
-    const [selectImg, SetselectImg] = useState(null)
 
+    //Photo cliquer 
+    const [selectImg, SetselectImg] = useState(null)
 
     const [sideOpen, SideClose] = useState(false)
 
@@ -56,6 +51,12 @@ const HomeClient = () => {
     const hadleClose = () => {
         SideClose(false)
     }
+
+
+
+
+
+
 
 
 
@@ -70,10 +71,9 @@ const HomeClient = () => {
 
                 </div>) : null}
 
+            <PrepaPhotos prepaPhotos={prepaPhotos} SetselectImg={SetselectImg} close={hadleClose} />
 
-            <PhotoHome photos={photos} SetselectImg={SetselectImg} close={hadleClose} />
-
-            { selectImg && <Modal selectImg={selectImg} SetselectImg={SetselectImg} />}
+            { selectImg && <PrepaModal selectImg={selectImg} SetselectImg={SetselectImg} />}
 
 
 
@@ -84,6 +84,4 @@ const HomeClient = () => {
     )
 }
 
-
-
-export default HomeClient;
+export default Preparation; 

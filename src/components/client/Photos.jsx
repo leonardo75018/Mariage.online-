@@ -8,8 +8,6 @@ import { motion } from 'framer-motion';
 
 const PhotoHome = ({ photos, SetselectImg, close }) => {
 
-
-
     return (
 
         <div className="img-grid" onClick={close}>
@@ -28,46 +26,6 @@ const PhotoHome = ({ photos, SetselectImg, close }) => {
 
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // <div id="photoRow">
-
-        //     {
-        //         photos.map(photo =>
-        //             <div key={photo.id} className="photoRow-photo">
-        //                 <img src={photo.urlPhoto} alt="" />
-
-        //             </div>
-
-        //         )
-
-        //     }
-
-
-        // </div>
     )
 }
 

@@ -1,34 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import PhotoHome from "../../components/client/Photos"
-import Modal from "../../components/client/Modal"
+import React from 'react'
 import Nav from "../../components/client/Nav"
+import SoirPhotos from "../../components/client/SoirPhotos"
+import SoirModal from "../../components/client/SoirModal"
+import api from "../../service/api"
+import { useEffect, useState } from 'react'
 import SideNavBar from "../../components/client/SidNavBar"
 import AffterNav from "../../components/client/affterNav"
-import api from "../../service/api"
-import "../../style/nav-bar.scss"
 
 
 
+const Soir = () => {
+
+    const [soirPhotos, SetSoirPhotos] = useState([])
 
 
-
-
-const HomeClient = () => {
-
-
-    const [photos, SetPhotos] = useState([])
-
-
-    const TakePhoto = async () => {
+    const TakeSoirPhotos = async () => {
         try {
             const response = await api.get(`/application/profileClient/${31}`);
 
             const array = response.data.filter((elem) => {
-                return elem.moment === "cerimonie"
+                return elem.moment === "soir"
             })
 
 
-            SetPhotos(array)
+            SetSoirPhotos(array)
 
         } catch (error) {
             return console.log(error)
@@ -37,13 +32,13 @@ const HomeClient = () => {
     }
 
 
-
-
     useEffect(() => {
-        TakePhoto()
+
+        return TakeSoirPhotos()
 
     }, [])
 
+    //Photo cliquer 
     const [selectImg, SetselectImg] = useState(null)
 
 
@@ -59,6 +54,7 @@ const HomeClient = () => {
 
 
 
+
     return (
         <div>
             <Nav Open={hadleOpen} close={hadleClose} />
@@ -70,20 +66,10 @@ const HomeClient = () => {
 
                 </div>) : null}
 
-
-            <PhotoHome photos={photos} SetselectImg={SetselectImg} close={hadleClose} />
-
-            { selectImg && <Modal selectImg={selectImg} SetselectImg={SetselectImg} />}
-
-
-
-
-
-
+            <SoirPhotos soirPhotos={soirPhotos} SetselectImg={SetselectImg} close={hadleClose} />
+            {selectImg && <SoirModal selectImg={selectImg} SetselectImg={SetselectImg} />}
         </div>
     )
 }
 
-
-
-export default HomeClient;
+export default Soir; 

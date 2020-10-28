@@ -22,7 +22,13 @@ import DelePhoto from "./pages/admin/clients/deletePhoto"
 
 
 //Routes for client 
-import PhotoHome from "./components/client/PhotoHome"
+import PhotoHome from "./components/client/Photos"
+import Preparation from "./pages/client/preparation"
+import Mairie from "./pages/client/Mairie"
+import Parc from "./pages/client/Parc"
+import Soir from "./pages/client/Soir"
+import Invites from "./pages/client/Invites"
+import Profile from "./pages/client/profile"
 
 
 
@@ -47,30 +53,32 @@ const Routes = (props) => {
                 <Switch>
 
 
-                    <Router exact path="/profileClient/:id" >  <ProfileClient />   </Router>
-                    <Router exact path="/nosotros/:id">  <User />      </Router>
+                    <Route exact path="/profileClient/:id" >  <ProfileClient />   </Route>
+                    <Route exact path="/nosotros/:id">  <User />      </Route>
 
-                    <Router exact path="/dashboard"> <Dashboard />  </Router>
-                    <Router exact path="/createClient"> <CreateClient />  </Router>
-                    <Router exact path="/addPhotos"> <AddPhoto />  </Router>
-                    <Router exact path="/listeClients"> <ListeClient />  </Router>
+                    <Route exact path="/dashboard"> <Dashboard />  </Route>
+                    <Route exact path="/createClient"> <CreateClient />  </Route>
+                    <Route exact path="/addPhotos"> <AddPhoto />  </Route>
+                    <Route exact path="/listeClients"> <ListeClient />  </Route>
                     <Route exact path="/listePhotos/:id"> <ListePhotos />  </Route>
-                    <Router exact path="/profileClient"> <ProfileClient />  </Router>
-                    <Router exact path="/updatePhoto"> <UpdatePhoto />  </Router>
-                    <Router exact path="/deleteClient"> <DeleClient />  </Router>
-                    <Router exact path="/deletePhoto">  <DelePhoto />      </Router>
-                    <Router exact path="/compteAdmin">  <CompteAdmin />      </Router>
-
-
-                    <Route exact path="/homeClient"> <HomeClient />  </Route>
+                    <Route exact path="/profileClient"> <ProfileClient />  </Route>
+                    <Route exact path="/updatePhoto"> <UpdatePhoto />  </Route>
+                    <Route exact path="/deleteClient"> <DeleClient />  </Route>
+                    <Route exact path="/deletePhoto">  <DelePhoto />      </Route>
+                    <Route exact path="/compteAdmin">  <CompteAdmin />      </Route>
 
 
 
+                    <Route exact path="/mariage.online/home"> <HomeClient />  </Route>
+                    <Route exact path="/mariage.online/preparation"> <Preparation />  </Route>
+                    <Route exact path="/mariage.online/mairie"> <Mairie />  </Route>
+                    <Route exact path="/mariage.online/parc"> <Parc />  </Route>
+                    <Route exact path="/mariage.online/soir"> <Soir />  </Route>
+                    <Route exact path="/mariage.online/invites"> <Invites />  </Route>
+                    <Route exact path="/mariage.online/profile"> <Profile />  </Route>
 
 
-                    //Clients
                     <Router path="/home"> <Home />  </Router>
-
 
                     //Général
                     <Router exact path="/"> <Login />  </Router>
